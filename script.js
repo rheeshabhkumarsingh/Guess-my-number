@@ -33,24 +33,33 @@ buttonCheck_reference.addEventListener('click',() => {
         secretNumber_reference.style.width = '30rem';
         secretNumber_reference.textContent = secretNumber;
     }
-    else if( guess < secretNumber) {
-        if(score>=0){
+    else if(guess !== secretNumber){
+        if(score<=0){
+            message_reference.textContent = 'You lost the game!'
+        }
+        else if(guess < secretNumber){
             message_reference.textContent = '🔻 too less';
-            score_reference.textContent = --score;
         }
-        else {
-            message_reference.textContent = 'You lost the game!'
-        }
-    }
-    else if(guess > secretNumber){
-        if(score>=0){
+        else if(guess > secretNumber){
             message_reference.textContent = '🔼 too high';
-            score_reference.textContent = --score;
         }
-        else {
-            message_reference.textContent = 'You lost the game!'
-        }
+        score_reference.textContent = --score;
     }
+
+    // else if( guess < secretNumber) {
+    //     if(score>=0){
+    //     }
+    //     else {
+    //         message_reference.textContent = 'You lost the game!'
+    //     }
+    // }
+    // else if(guess > secretNumber){
+    //     if(score>=0){
+    //         score_reference.textContent = --score;
+    //     }
+    //     else {
+    //     }
+    // }
 });
 
 again_reference.addEventListener('click', () => {
